@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,19 +30,22 @@ namespace end_cs
         
         private void pictureBox1_Click(object sender, EventArgs e)
         {//다이얼로그 생성 이미지 삽입
-            string image_file = string.Empty;
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.InitialDirectory = @"C:\Users\Ant\Desktop:\";
-            
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                image_file = dialog.FileName;
+                pictureBox1.Load(dialog.FileName);
             }
-            else if (dialog.ShowDialog() == DialogResult.Cancel)
-            {
-                return;
-            }
-            pictureBox1.Image = Bitmap.FromFile(image_file);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Bitmap bitmap = new Bitmap(this.pictureBox1.Width, this.pictureBox1.Height);
+            Graphics graphics = Graphics.FromImage(bitmap);
+
+            graphics.CopyFromScreen(PointToScreen(new Point(this.pictureBox1.Location.X, this.pictureBox1.Location.Y)),
+                new Point(0, 0), pictureBox1.Size);
+            bitmap.Save("22.jpg");
+            pictureBox1.ImageLocation = "22.jpg";
         }
 
         Image img;
@@ -64,21 +67,19 @@ namespace end_cs
 
         private void button2_Click(object sender, EventArgs e)
         {//저장버튼
-            string folder = Application.StartupPath + @"\output";
-            DirectoryInfo dir = new DirectoryInfo(folder);
-            if (!dir.Exists) dir.Create();
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Text File|*.txt |All files (*.*)|(*.*)";
+            saveFileDialog1.Title = "Save an Text File";
+            saveFileDialog1.ShowDialog();
 
-            string txtFile = folder + @"\output.txt";
-            FileStream filestream = new FileStream(txtFile, FileMode.Append, FileAccess.Write);
-            StreamWriter streamWriter = new StreamWriter(filestream, System.Text.Encoding.Default);
-
-            streamWriter.WriteLine(String.Format(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")));
-            streamWriter.WriteLine(pictureBox1.Image);
-            streamWriter.Flush();
-            streamWriter.Close();
-            filestream.Close();
+            if(saveFileDialog1.ShowDialog() == DialogResult.OK){
+                using (StreamWriter sw = new StreamWriter(saveFileDialog1.FileName))
+                    sw.WriteLine(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "\n"
+                        + textBox1.Text);
+            }
             
         }//end 저장버튼클릭
+
         private void button3_Click_1(object sender, EventArgs e)
         {//변환버튼
             textBox1.ResetText();
@@ -119,6 +120,20 @@ namespace end_cs
                 MessageBox.Show("언어를 선택하세요~");
             }
         }//end 변환버튼클릭
-        
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void On_Button1_CheckedChanged(object sender, EventArgs e)
+        {
+            pictureBox1.BackColor = Color.LightGray;
+        }
+
+        private void Off_Button1_CheckedChanged(object sender, EventArgs e)
+        {
+            pictureBox1.BackColor = Color.Silver;
+        }
     }
 }
