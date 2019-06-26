@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -64,19 +64,16 @@ namespace end_cs
 
         private void button2_Click(object sender, EventArgs e)
         {//저장버튼
-            string folder = Application.StartupPath + @"\output";
-            DirectoryInfo dir = new DirectoryInfo(folder);
-            if (!dir.Exists) dir.Create();
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Text File|*.txt |All files (*.*)|(*.*)";
+            saveFileDialog1.Title = "Save an Text File";
+            saveFileDialog1.ShowDialog();
 
-            string txtFile = folder + @"\output.txt";
-            FileStream filestream = new FileStream(txtFile, FileMode.Append, FileAccess.Write);
-            StreamWriter streamWriter = new StreamWriter(filestream, System.Text.Encoding.Default);
-
-            streamWriter.WriteLine(String.Format(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")));
-            streamWriter.WriteLine(pictureBox1.Image);
-            streamWriter.Flush();
-            streamWriter.Close();
-            filestream.Close();
+            if(saveFileDialog1.ShowDialog() == DialogResult.OK){
+                using (StreamWriter sw = new StreamWriter(saveFileDialog1.FileName))
+                    sw.WriteLine(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "\n"
+                        + textBox1.Text);
+            }
             
         }//end 저장버튼클릭
         private void button3_Click_1(object sender, EventArgs e)
