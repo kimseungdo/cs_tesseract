@@ -39,7 +39,13 @@ namespace end_cs
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Bitmap bitmap = new Bitmap(this.pictureBox1.Width, this.pictureBox1.Height);
+            Graphics graphics = Graphics.FromImage(bitmap);
 
+            graphics.CopyFromScreen(PointToScreen(new Point(this.pictureBox1.Location.X, this.pictureBox1.Location.Y)),
+                new Point(0, 0), pictureBox1.Size);
+            bitmap.Save("22.jpg");
+            pictureBox1.ImageLocation = "22.jpg";
         }
 
         Image img;
@@ -73,6 +79,7 @@ namespace end_cs
             }
             
         }//end 저장버튼클릭
+
         private void button3_Click_1(object sender, EventArgs e)
         {//변환버튼
             textBox1.ResetText();
@@ -121,12 +128,12 @@ namespace end_cs
 
         private void On_Button1_CheckedChanged(object sender, EventArgs e)
         {
-
+            pictureBox1.BackColor = Color.LightGray;
         }
 
         private void Off_Button1_CheckedChanged(object sender, EventArgs e)
         {
-
+            pictureBox1.BackColor = Color.Silver;
         }
     }
 }
