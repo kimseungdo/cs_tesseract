@@ -30,19 +30,11 @@ namespace end_cs
         
         private void pictureBox1_Click(object sender, EventArgs e)
         {//다이얼로그 생성 이미지 삽입
-            string image_file = string.Empty;
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.InitialDirectory = @"C:\Users\Ant\Desktop:\";
-            
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                image_file = dialog.FileName;
+                pictureBox1.Load(dialog.FileName);
             }
-            else if (dialog.ShowDialog() == DialogResult.Cancel)
-            {
-                return;
-            }
-            pictureBox1.Image = Bitmap.FromFile(image_file);
         }
 
         Image img;
