@@ -35,6 +35,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.kor_button = new System.Windows.Forms.RadioButton();
             this.eng_button = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.On_Button1 = new System.Windows.Forms.RadioButton();
+            this.Off_Button1 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +46,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Silver;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 58);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 94);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(681, 296);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -54,7 +58,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 362);
+            this.textBox1.Location = new System.Drawing.Point(12, 398);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(681, 206);
@@ -62,9 +66,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(488, 9);
+            this.button2.Location = new System.Drawing.Point(433, 47);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(143, 41);
+            this.button2.Size = new System.Drawing.Size(124, 41);
             this.button2.TabIndex = 4;
             this.button2.Text = "txt파일로 저장하기";
             this.button2.UseVisualStyleBackColor = true;
@@ -72,9 +76,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(315, 9);
+            this.button3.Location = new System.Drawing.Point(297, 47);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(143, 41);
+            this.button3.Size = new System.Drawing.Size(118, 41);
             this.button3.TabIndex = 4;
             this.button3.Text = "변환하기";
             this.button3.UseVisualStyleBackColor = true;
@@ -84,16 +88,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("DIN", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(56, 19);
+            this.label1.Location = new System.Drawing.Point(145, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 16);
             this.label1.TabIndex = 5;
             this.label1.Text = "Language";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // kor_button
             // 
             this.kor_button.AutoSize = true;
-            this.kor_button.Location = new System.Drawing.Point(166, 21);
+            this.kor_button.Location = new System.Drawing.Point(239, 15);
             this.kor_button.Name = "kor_button";
             this.kor_button.Size = new System.Drawing.Size(42, 16);
             this.kor_button.TabIndex = 8;
@@ -103,7 +108,7 @@
             // eng_button
             // 
             this.eng_button.AutoSize = true;
-            this.eng_button.Location = new System.Drawing.Point(236, 21);
+            this.eng_button.Location = new System.Drawing.Point(297, 15);
             this.eng_button.Name = "eng_button";
             this.eng_button.Size = new System.Drawing.Size(45, 16);
             this.eng_button.TabIndex = 9;
@@ -111,13 +116,62 @@
             this.eng_button.Text = "Eng";
             this.eng_button.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(162, 47);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 41);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "화면캡쳐";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("DIN", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(369, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(104, 16);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "화면캡쳐모드";
+            this.label2.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // On_Button1
+            // 
+            this.On_Button1.AutoSize = true;
+            this.On_Button1.Location = new System.Drawing.Point(481, 16);
+            this.On_Button1.Name = "On_Button1";
+            this.On_Button1.Size = new System.Drawing.Size(39, 16);
+            this.On_Button1.TabIndex = 11;
+            this.On_Button1.TabStop = true;
+            this.On_Button1.Text = "On";
+            this.On_Button1.UseVisualStyleBackColor = true;
+            this.On_Button1.CheckedChanged += new System.EventHandler(this.On_Button1_CheckedChanged);
+            // 
+            // Off_Button1
+            // 
+            this.Off_Button1.AutoSize = true;
+            this.Off_Button1.Location = new System.Drawing.Point(529, 16);
+            this.Off_Button1.Name = "Off_Button1";
+            this.Off_Button1.Size = new System.Drawing.Size(38, 16);
+            this.Off_Button1.TabIndex = 12;
+            this.Off_Button1.TabStop = true;
+            this.Off_Button1.Text = "Off";
+            this.Off_Button1.UseVisualStyleBackColor = true;
+            this.Off_Button1.CheckedChanged += new System.EventHandler(this.Off_Button1_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 581);
+            this.ClientSize = new System.Drawing.Size(705, 616);
+            this.Controls.Add(this.Off_Button1);
+            this.Controls.Add(this.On_Button1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.eng_button);
             this.Controls.Add(this.kor_button);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -125,6 +179,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "OCR";
+            this.TransparencyKey = System.Drawing.Color.LightGray;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -140,6 +195,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton kor_button;
         private System.Windows.Forms.RadioButton eng_button;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RadioButton On_Button1;
+        private System.Windows.Forms.RadioButton Off_Button1;
     }
 }
 

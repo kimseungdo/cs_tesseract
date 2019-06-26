@@ -37,6 +37,11 @@ namespace end_cs
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         Image img;
         private void pictureBox1_DragDrop(object sender, DragEventArgs e)
         {//Occurs when a drag-and - drop operation is completed.
@@ -108,6 +113,20 @@ namespace end_cs
                 MessageBox.Show("언어를 선택하세요~");
             }
         }//end 변환버튼클릭
-        
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void On_Button1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Off_Button1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
